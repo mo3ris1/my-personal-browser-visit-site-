@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Моя Визитка</title>
+    <!-- Подключаем иконки FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e, #16213e, #0f3460);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            padding: 20px;
+        }
+
+        .container {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 40px 30px;
+            max-width: 400px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 3px solid #e94560;
+            margin-bottom: 15px;
+            object-fit: cover;
+            /* Замени ссылку ниже на свою аватарку */
+            background-image: url('https://via.placeholder.com/150'); 
+            background-size: cover;
+            margin: 0 auto 15px;
+        }
+
+        h1 {
+            font-size: 24px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .bio {
+            font-size: 14px;
+            color: #b0b0b0;
+            margin-bottom: 30px;
+            line-height: 1.5;
+        }
+
+        .links {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .link-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            background: rgba(255, 255, 255, 0.1);
+            color: #fff;
+            text-decoration: none;
+            padding: 15px;
+            border-radius: 12px;
+            font-size: 16px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .link-btn:hover {
+            background: rgba(233, 69, 96, 0.2);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(233, 69, 96, 0.3);
+            border-color: #e94560;
+        }
+
+        .link-btn i {
+            font-size: 20px;
+            width: 25px;
+        }
+
+        /* Цвета для конкретных соцсетей при наведении */
+        .discord:hover { background: rgba(88, 101, 242, 0.2); border-color: #5865F2; box-shadow: 0 5px 15px rgba(88, 101, 242, 0.3); }
+        .telegram:hover { background: rgba(38, 165, 215, 0.2); border-color: #26A5E4; box-shadow: 0 5px 15px rgba(38, 165, 215, 0.3); }
+        .twitter:hover { background: rgba(29, 161, 242, 0.2); border-color: #1DA1F2; box-shadow: 0 5px 15px rgba(29, 161, 242, 0.3); }
+        .instagram:hover { background: rgba(225, 48, 108, 0.2); border-color: #E1306C; box-shadow: 0 5px 15px rgba(225, 48, 108, 0.3); }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 12px;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Твоя аватарка -->
+        <div class="avatar"></div>
+        
+        <!-- Твой ник и био -->
+        <h1>Твой Никнейм</h1>
+        <p class="bio">Геймер, кодер и просто хороший человек. <br>Добро пожаловать в мой цифровой уголок!</p>
+
+        <!-- Ссылки -->
+        <div class="links">
+            <a href="https://discord.com/users/ТВОЙ_ID" target="_blank" class="link-btn discord">
+                <i class="fab fa-discord"></i> Discord
+            </a>
+            <a href="https://t.me/ТВОЙ_НИК" target="_blank" class="link-btn telegram">
+                <i class="fab fa-telegram"></i> Telegram
+            </a>
+            <a href="https://twitter.com/ТВОЙ_НИК" target="_blank" class="link-btn twitter">
+                <i class="fab fa-twitter"></i> Twitter / X
+            </a>
+            <a href="https://instagram.com/ТВОЙ_НИК" target="_blank" class="link-btn instagram">
+                <i class="fab fa-instagram"></i> Instagram
+            </a>
+        </div>
+
+        <div class="footer">
+            © 2026 Твой Ник. Все права защищены.
+        </div>
+    </div>
+
+</body>
+</html>

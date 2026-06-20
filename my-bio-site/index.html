@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BIO TECH - M03RIS</title>
+    <link rel="icon" type="image/png" href="avatar.png">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Космический фон -->
+    <div class="cosmic-background">
+        <div class="nebula"></div>
+        <div class="stars"></div>
+        <div class="stars2"></div>
+        <div class="stars3"></div>
+    </div>
+
+    <!-- Шапка -->
+    <header>
+        <div class="logo">
+            <i class="fas fa-dna"></i>
+            <span>BIO TECH</span>
+        </div>
+        <div class="header-controls">
+            <!-- Переключатель языка -->
+            <div class="language-switcher">
+                <button class="lang-btn active" onclick="changeLanguage('ru')" id="lang-ru">RU</button>
+                <button class="lang-btn" onclick="changeLanguage('en')" id="lang-en">EN</button>
+            </div>
+            <!-- Меню -->
+            <div class="menu-container">
+                <button class="menu-btn" onclick="toggleMenu()">
+                    <i class="fas fa-bars"></i> <span data-key="menu">Menu</span>
+                </button>
+                <div class="dropdown-menu" id="dropdownMenu">
+                    <a href="#" class="menu-item active" onclick="showPage('home', this)">
+                        <i class="fas fa-home"></i> <span data-key="nav_home">Home</span>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showPage('contacts', this)">
+                        <i class="fas fa-address-card"></i> <span data-key="nav_contacts">Contacts</span>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showPage('hobbies', this)">
+                        <i class="fas fa-gamepad"></i> <span data-key="nav_hobbies">Hobbies</span>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showPage('quotes', this)">
+                        <i class="fas fa-quote-left"></i> <span data-key="nav_quotes">Quotes</span>
+                    </a>
+                    <a href="#" class="menu-item" onclick="showPage('settings', this)">
+                        <i class="fas fa-cog"></i> <span data-key="nav_settings">Settings</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- СТРАНИЦА 1: HOME -->
+    <main id="home" class="page active">
+        <section class="hero-home">
+            <div class="welcome-content">
+                <div class="avatar-container">
+                    <img src="avatar.png" alt="M03RIS" class="avatar-main">
+                    <div class="glow-effect"></div>
+                </div>
+                
+                <h1 class="glitch" data-text="Welcome" data-key="welcome_title">Добро пожаловать</h1>
+                <p class="welcome-text" data-key="welcome_text">
+                    ко мне на сайт, здесь вы можете узнать обо мне немного побольше, 
+                    а так-же найти мои контактные данные. Если хотите начать общаться — 
+                    не бойтесь начинать диалог, я не кусаюсь и не вспыльчив.
+                </p>
+
+                <!-- Кнопка-пасхалка -->
+                <button class="rickroll-btn" onclick="playRickroll()">
+                    <i class="fas fa-hand-pointer"></i>
+                    <span data-key="rickroll_text">Нажми меня</span>
+                </button>
+
+                <div class="bio-cards">
+                    <div class="bio-card">
+                        <div class="bio-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <h3 data-key="bio_profession_title">Профессия</h3>
+                        <p data-key="bio_profession_text">Учусь на программиста</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <div class="bio-icon">
+                            <i class="fas fa-birthday-cake"></i>
+                        </div>
+                        <h3 data-key="bio_age_title">Возраст</h3>
+                        <p data-key="bio_age_text">18 лет</p>
+                    </div>
+                    
+                    <div class="bio-card">
+                        <div class="bio-icon">
+                            <i class="fas fa-user-astronaut"></i>
+                        </div>
+                        <h3 data-key="bio_name_title">Имя</h3>
+                        <p data-key="bio_name_text">Мори / Морис</p>
+                    </div>
+                </div>
+
+                <!-- Social Credit -->
+                <div class="social-credit-section">
+                    <h3 data-key="social_credit_title">Оцените сайт</h3>
+                    <div class="social-credit-counter">
+                        <span id="creditCount">0</span>
+                        <span data-key="social_credit_label">Social Credit</span>
+                    </div>
+                    <div class="credit-buttons">
+                        <button class="credit-btn like-btn" onclick="addCredit(-1)">
+                            <i class="fas fa-thumbs-down"></i>
+                            <span data-key="dislike">Dislike</span>
+                        </button>
+                        <button class="credit-btn dislike-btn" onclick="addCredit(1)">
+                            <i class="fas fa-thumbs-up"></i>
+                            <span data-key="like">Like</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- СТРАНИЦА 2: CONTACTS -->
+    <main id="contacts" class="page">
+        <section class="contacts-section">
+            <h2 class="section-title">
+                <i class="fas fa-address-book"></i>
+                <span data-key="contacts_title">Мои контакты</span>
+            </h2>
+            
+            <div class="contacts-grid-2x3">
+                <a href="https://t.me/mo3ris" class="contact-card-bg" data-bg="telegram" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-telegram"></i>
+                        <h3>Telegram</h3>
+                        <p>@mo3ris</p>
+                    </div>
+                </a>
+
+                <a href="https://discord.com/users/mo3ris" class="contact-card-bg" data-bg="discord" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-discord"></i>
+                        <h3>Discord</h3>
+                        <p>m03ris</p>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/mo3ris1/" class="contact-card-bg" data-bg="instagram" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-instagram"></i>
+                        <h3>Instagram</h3>
+                        <p>@mo3ris1</p>
+                    </div>
+                </a>
+
+                <a href="https://x.com/mo3ris" class="contact-card-bg" data-bg="x" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-twitter"></i>
+                        <h3>X (Twitter)</h3>
+                        <p>@mo3ris</p>
+                    </div>
+                </a>
+
+                <a href="https://open.spotify.com/user/31fbe7sm7pzwphja6kb2ghkzsisi" class="contact-card-bg" data-bg="spotify" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-spotify"></i>
+                        <h3>Spotify</h3>
+                        <p data-key="spotify_text">Моя музыка</p>
+                    </div>
+                </a>
+
+                <a href="https://steamcommunity.com/profiles/76561199222448320/" class="contact-card-bg" data-bg="steam" target="_blank">
+                    <div class="card-overlay">
+                        <i class="fab fa-steam"></i>
+                        <h3>Steam</h3>
+                        <p data-key="steam_text">Мой профиль</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <!-- СТРАНИЦА 3: HOBBIES -->
+    <main id="hobbies" class="page">
+        <section class="hobbies-section">
+            <h2 class="section-title">
+                <i class="fas fa-heart"></i>
+                <span data-key="hobbies_title">Мои увлечения</span>
+            </h2>
+
+            <div class="hobby-block">
+                <div class="hobby-header">
+                    <i class="fas fa-language"></i>
+                    <h3 data-key="english_title">Изучение английского языка</h3>
+                </div>
+                <div class="level-container">
+                    <div class="level-badge">
+                        <span class="level-text">B1</span>
+                        <span class="level-desc" data-key="level_intermediate">Intermediate</span>
+                    </div>
+                    <div class="progress-bar">
+                        <div class="progress-fill" style="width: 60%"></div>
+                    </div>
+                    <p class="level-info" data-key="english_desc">Средний уровень — могу общаться на большинство тем</p>
+                </div>
+            </div>
+
+            <div class="hobby-block">
+                <div class="hobby-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3 data-key="programming_title">Программирование</h3>
+                </div>
+                <div class="tech-stack">
+                    <div class="tech-item">
+                        <i class="fas fa-microchip"></i>
+                        <span>C++</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fas fa-window-maximize"></i>
+                        <span>C#</span>
+                    </div>
+                    <div class="tech-item">
+                        <i class="fab fa-python"></i>
+                        <span>Python</span>
+                    </div>
+                </div>
+                <p class="hobby-desc" data-key="programming_desc">
+                    <i class="fas fa-robot"></i>
+                    Делаю много бесполезной фигни для автоматизации абстрактных процессов ^^
+                </p>
+            </div>
+
+            <div class="hobby-block">
+                <div class="hobby-header">
+                    <i class="fas fa-trophy"></i>
+                    <h3 data-key="games_title">Любимые игры</h3>
+                </div>
+                <div class="games-list">
+                    <div class="game-item top-1">
+                        <div class="game-rank">
+                            <i class="fas fa-crown"></i>
+                            <span data-key="rank_1">1 место</span>
+                        </div>
+                        <div class="game-info">
+                            <h4>osu!</h4>
+                            <div class="game-hours">
+                                <i class="fas fa-clock"></i>
+                                <span>1100 <span data-key="hours">часов</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-item top-2">
+                        <div class="game-rank">
+                            <i class="fas fa-medal"></i>
+                            <span data-key="rank_2">2 место</span>
+                        </div>
+                        <div class="game-info">
+                            <h4>VRChat</h4>
+                            <div class="game-hours">
+                                <i class="fas fa-clock"></i>
+                                <span>4200 <span data-key="hours">часов</span></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="game-item top-3">
+                        <div class="game-rank">
+                            <i class="fas fa-award"></i>
+                            <span data-key="rank_3">3 место</span>
+                        </div>
+                        <div class="game-info">
+                            <h4>Rust</h4>
+                            <div class="game-hours">
+                                <i class="fas fa-clock"></i>
+                                <span>10000 <span data-key="hours">часов</span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- СТРАНИЦА 4: QUOTES -->
+    <main id="quotes" class="page">
+        <section class="quotes-section">
+            <h2 class="section-title">
+                <i class="fas fa-quote-left"></i>
+                <span data-key="quotes_title">Мои цитаты</span>
+            </h2>
+            
+            <div class="quotes-grid">
+                <div class="quote-card">
+                    <div class="quote-number">1</div>
+                    <p class="quote-text" data-key="quote_1">Ошибка и ты ошибся</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">2</div>
+                    <p class="quote-text" data-key="quote_2">В автобусе место я бабкам не уступаю, ведь бабки в жизни не главное</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">3</div>
+                    <p class="quote-text" data-key="quote_3">Сила не в бабках, ведь бабки уже старые</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">4</div>
+                    <p class="quote-text" data-key="quote_4">Не учи меня как жить, никто лучше меня не знает как всё испортить</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">5</div>
+                    <p class="quote-text" data-key="quote_5">Зови меня дед, ведь меня интересуют только бабки</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">6</div>
+                    <p class="quote-text" data-key="quote_6">Скажи мне, кто твой друг, и оба идите нахер</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">7</div>
+                    <p class="quote-text" data-key="quote_7">Тут – это вам не там, это там, где здесь</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">8</div>
+                    <p class="quote-text" data-key="quote_8">Завтра рано вставать, встану послезавтра</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">9</div>
+                    <p class="quote-text" data-key="quote_9">Никогда не откладывай на завтра то, на что можно забить сегодня</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">10</div>
+                    <p class="quote-text" data-key="quote_10">Если заблудился в лесу, иди домой</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">11</div>
+                    <p class="quote-text" data-key="quote_11">Девушка вынашивает ребенка 9 месяцев. Я выношу его с одного удара</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">12</div>
+                    <p class="quote-text" data-key="quote_12">Собакам нельзя доверять, потому что они издают Lie</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">13</div>
+                    <p class="quote-text" data-key="quote_13">Не яйца красят человека, а человек яйца</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">14</div>
+                    <p class="quote-text" data-key="quote_14">Пары не удары, можно и пропустить. Учеба не Усейн Болт, не убежит</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">15</div>
+                    <p class="quote-text" data-key="quote_15">Если паническая атака неизбежна, атакуй первым</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">16</div>
+                    <p class="quote-text" data-key="quote_16">Алкоголизм – это страшно, но я не из трусливых</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">17</div>
+                    <p class="quote-text" data-key="quote_17">Дают – бери, не дают – отбери</p>
+                </div>
+                <div class="quote-card">
+                    <div class="quote-number">18</div>
+                    <p class="quote-text" data-key="quote_18">Когда женщина поднимает руку, она перестает быть женщиной и становится спарринг-партнером</p>
+                </div>
+            </div>
+
+            <div class="quotes-footer">
+                <p data-key="quotes_footer">Если захотите, чтобы я сделал ещё — можете сказать, я подумаю ^^</p>
+            </div>
+
+            <!-- Круглая кнопка Skibidi -->
+            <button class="skibidi-btn" onclick="playSkibidi()" title="Секретная кнопка">
+                <i class="fas fa-toilet"></i>
+            </button>
+        </section>
+    </main>
+
+    <!-- СТРАНИЦА 5: SETTINGS -->
+    <main id="settings" class="page">
+        <section class="settings-section">
+            <h2 class="section-title">
+                <i class="fas fa-cog"></i>
+                <span data-key="settings_title">Настройки</span>
+            </h2>
+
+            <!-- Громкость -->
+            <div class="settings-block">
+                <div class="settings-header">
+                    <i class="fas fa-volume-up"></i>
+                    <h3 data-key="volume_title">Громкость</h3>
+                </div>
+                <div class="volume-control">
+                    <label data-key="bg_music_label">Фоновая музыка</label>
+                    <div class="volume-slider-container">
+                        <input type="range" id="bgVolume" min="0" max="100" value="25" class="volume-slider">
+                        <span class="volume-value" id="bgVolumeValue">25%</span>
+                    </div>
+                </div>
+                <div class="volume-control">
+                    <label data-key="sfx_label">Звуковые эффекты</label>
+                    <div class="volume-slider-container">
+                        <input type="range" id="sfxVolume" min="0" max="100" value="50" class="volume-slider">
+                        <span class="volume-value" id="sfxVolumeValue">50%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Выбор фонового изображения -->
+            <div class="settings-block">
+                <div class="settings-header">
+                    <i class="fas fa-image"></i>
+                    <h3 data-key="bg_image_title">Фоновое изображение</h3>
+                </div>
+                <div class="bg-selector">
+                    <button class="bg-option active" onclick="changeBackground('background1.jpg', this)">
+                        <span>Background 1</span>
+                    </button>
+                    <button class="bg-option" onclick="changeBackground('background2.jpg', this)">
+                        <span>Background 2</span>
+                    </button>
+                    <button class="bg-option" onclick="changeBackground('none', this)">
+                        <span data-key="bg_cosmic">Космический</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Выбор фоновой музыки -->
+            <div class="settings-block">
+                <div class="settings-header">
+                    <i class="fas fa-music"></i>
+                    <h3 data-key="bg_music_select_title">Фоновая музыка</h3>
+                </div>
+                <div class="music-selector">
+                    <button class="music-option active" onclick="changeBgMusic('ambient.mp3', this)">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Ambient (основная)</span>
+                    </button>
+                    <button class="music-option" onclick="changeBgMusic('ambient1.mp3', this)">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Ambient 1</span>
+                    </button>
+                    <button class="music-option" onclick="changeBgMusic('ambient2.mp3', this)">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Ambient 2</span>
+                    </button>
+                    <button class="music-option" onclick="changeBgMusic('ambient3.mp3', this)">
+                        <i class="fas fa-play-circle"></i>
+                        <span>Ambient 3</span>
+                    </button>
+                </div>
+                <div class="music-controls">
+                    <button class="music-btn" onclick="toggleBgMusic()" id="playPauseBtn">
+                        <i class="fas fa-pause"></i>
+                        <span data-key="pause">Пауза</span>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <p>&copy; 2026 M03RIS | BIO TECH Project</p>
+    </footer>
+
+    <!-- Фоновая музыка -->
+    <audio id="bgMusic" loop>
+        <source src="sounds/ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <script src="script.js"></script>
+</body>
+</html>
